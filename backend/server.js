@@ -1,7 +1,10 @@
 const express = require('express');
 const notes = require("./data/notes");
-const app = express();
+const dotenv = require('dotenv')
 
+
+const app = express();
+dotenv.config()
 
 app.get("/",(req,res)=> {
   res.send("api is runing..")
@@ -16,4 +19,7 @@ app.get("/api/notes/:id",(req,res)=>{
   res.send(note);
 });
 
-app.listen(5000,console.log('server started on port 5000'));
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT,console.log(`this server run at ${PORT}`));
