@@ -1,0 +1,23 @@
+.main {
+  min-height: 93vh;
+  display: flex;
+  align-items: center;
+  background-image: url("../../background1.jpg");
+  background-position: center;
+  justify-content: center;
+  background-size: cover;
+}
+.title {
+  font-size: 2vh;
+  /* text-align: center; */
+}
+
+.subtitle {
+  font-size: 3vh;
+  padding-top: 10px;
+}
+
+.intro-text {
+  width: 100%;
+  text-align: center;
+}
