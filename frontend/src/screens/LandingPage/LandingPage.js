@@ -1,6 +1,8 @@
 import React from 'react'
 import { Container, Row } from 'react-bootstrap'
 import './LandingPage.css';
+import Button from 'react-bootstrap/Button';
+
 
 const LandingPage = () => {
   return (
@@ -13,10 +15,10 @@ const LandingPage = () => {
             </div>
             <div className="buttonContainer">
           <a href='login'> 
-          <button size="lg" className="ladingbutton"> Zaloguj sie</button>
+          <Button size="lg" className="ladingbutton" variant="danger"> Zaloguj sie</Button>
           </a>
           <a href='register'> 
-          <button> Zaresjestruj sie</button>
+          <Button size="lg" className="ladingbutton" variant="success"> Zaresjestruj sie</Button>
           </a>
             </div>
 
