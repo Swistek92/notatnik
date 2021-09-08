@@ -1,8 +1,20 @@
 
 import './App.css';
+import Footer from './components/Foooter/Footer';
+import Header from './components/Header/Header';
 
-const App=()=> {
-  return <h1 className="App"> hello</h1>
-}
+const App=()=> (
+  <>
+  <Header/>
+
+  <main style={{minHeight:"75vh"}}>
+
+
+  </main>
+
+  <Footer/>
+
+  </>
+)
 
 export default App;
