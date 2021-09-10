@@ -11,7 +11,7 @@ const LandingPage = () => {
           <div className='intro-text'>
             <div>
               <h1 className="title"><b>Notatnik dla Ciebie dla rodziny!</b> </h1>
-              <p className="subtitle">bezpieczne miejsce dla twoich notatek <br/> haaaaa</p>
+              <p className="subtitle">lilililililililililililiili <br/> |:-P </p>
             </div>
             <div className="buttonContainer">
           <a href='login'> 
