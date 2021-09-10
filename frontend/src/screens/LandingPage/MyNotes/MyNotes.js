@@ -1,15 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import MainScreen from '../../../components/MainScreen'
 import {Link} from "react-router-dom"
 import { Accordion, Badge, Button, Card } from 'react-bootstrap'
-import notes from "../../../data/notes"
+// import notes from "../../../data/notes"
+import axios from "axios";
 
 const MyNotes = () => {
+ const [notes, setNotes] = useState([])
+
 const  delateHandler = (id)=>{
   if(window.confirm("Are you sure?")){
     
   }
 }
+const fetchNotes = async() => {
+  const{data} = await axios.get("/api/notes");
+  setNotes(data);
+}
+
+useEffect(()=>{
+  fetchNotes();
+},[]);
+
 
 
   return (
@@ -22,7 +34,7 @@ const  delateHandler = (id)=>{
       </Link>
       {
           notes.map(note=>(
-            <Accordion>
+            <Accordion key={note._id}>
 
         <Card style={{margin: 10}}>
         <Card.Header style={{display: "flex"}}>
@@ -53,9 +65,9 @@ const  delateHandler = (id)=>{
             <Accordion.Collapse eventKey="0"> 
               <Card.Body>
 
-            <h7  style={{color:"green"}}>
+            <Badge  style={{backgroundColor:"green"}}>
               Category -{note.category}
-            </h7>
+            </Badge>
 
 
                   <blockquote className="blockquote mb-0">
