@@ -1,10 +1,13 @@
 const express = require('express');
 const notes = require("./data/notes");
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
+const connectDB = require('./config/db');
+// const env = require('dotenv').config({ path: 'ENV_FILENAME' });
 
 
 const app = express();
-dotenv.config()
+dotenv.config();
+connectDB();
 
 app.get("/",(req,res)=> {
   res.send("api is runing..")
