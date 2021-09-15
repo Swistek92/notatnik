@@ -1,9 +1,13 @@
 import React from 'react';
 import {Container, Nav, Navbar, NavDropdown, Form, FormControl  } from 'react-bootstrap'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
+
+
+  const history =useHistory();
+
   return (
     <Navbar className="nav" bg="primary" expand="lg" variant="dark">
   <Container>
@@ -35,7 +39,10 @@ const Header = () => {
         <NavDropdown title="Swistek" id="basic-nav-dropdown">
           <NavDropdown.Item href="#action/3.1">Mój profil</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">Wyloguj się</NavDropdown.Item>
+          <NavDropdown.Item onClick={()=>{
+            localStorage.removeItem("userInfo");
+            history.push("/")
+          }}>Wyloguj się</NavDropdown.Item>
         </NavDropdown>
       </Nav>
     </Navbar.Collapse>

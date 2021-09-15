@@ -21,6 +21,8 @@ app.get("/api/notes", (req,res)=>{
 
 
 app.use("/api/users", userRoutes);
+app.use("/api/notes", noteRoutes);
+
 
 app.use(notFound);
 app.use(errorHandler);
