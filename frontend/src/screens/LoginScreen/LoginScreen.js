@@ -7,6 +7,7 @@ import ErrorMessage from "../../components/ErrorMessage";
 // import { login } from "../../actions/userActions";
 import MainScreen from "../../components/MainScreen";
 import "./LoginScreen.css";
+import axios from 'axios'; 
 
 const LoginScreen = ({ history }) =>  {
   const [email, setEmail] = useState("");
@@ -15,15 +16,40 @@ const [error, setError]= useState(false);
 const [loading, setLoading]= useState(false); 
  
   useEffect(() => {
-    const userInfo = localStorage.getItem("userInfo", JSON.stringify(data));
+    const userInfo = localStorage.getItem("userInfo");
 
     if (userInfo) {
       history.push("/mynotes");
     }
   }, [history]);
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
+
+    try {
+      const config = {
+        heders: {
+          "Content-type":"application/json"
+        }
+      }
+      setLoading(true)
+      
+
+      const {data} = await axios.post(
+        '/api/users/login',
+        {
+        email, 
+        password
+      },
+      config
+      );
+
+      localStorage.setItem('userInfo', JSON.stringify(data));
+      setLoading(false)
+    } catch (error) {
+      setError(error.response.data.message)
+      
+    }
   };
 
   return (
