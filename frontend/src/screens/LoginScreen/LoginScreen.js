@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -21,7 +20,7 @@ const LoginScreen = ({ history }) =>  {
 
 
   useEffect(() => {
-    // const userInfo = localStorage.getItem("userInfo");
+    const userInfo = localStorage.getItem("userInfo");
 
     if (userInfo) {
       history.push("/mynotes");
@@ -74,7 +73,7 @@ const LoginScreen = ({ history }) =>  {
 }
 
 export default LoginScreen;
-=======
+
 // import axios from 'axios';
 // import React, { useState } from 'react'
 // import { Button, Col, Form, Row } from 'react-bootstrap';
@@ -136,4 +135,3 @@ export default LoginScreen;
 
 
 // export default LoginScreen;
->>>>>>> 9eee450410ddb1edc8cb886378715d5f5c106ac0
