@@ -1,6 +1,6 @@
 // import React, { useState, useEffect } from "react";
 import { useState } from "react";
-import { Form, Button, Row, Col, Alert } from "react-bootstrap";
+import { Form, Button, Row, Col } from "react-bootstrap";
 // import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Loading from "../../components/Loading";
