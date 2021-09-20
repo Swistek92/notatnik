@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Container, Nav, Navbar, NavDropdown, Form, FormControl  } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
@@ -19,6 +19,8 @@ const Header = () => {
        dispatch(logout());
        history.push('/')
    }
+
+     useEffect(() => {}, [userInfo]);
 
   return (
     <Navbar className="nav" bg="primary" expand="lg" variant="dark">
