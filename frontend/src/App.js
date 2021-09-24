@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import RegisterScreen from './screens/RegisterScreen/RegisterScreen';
 import LoginScreen from './screens/LoginScreen/LoginScreen';
+import CreateNote from './screens/CreateNote/CreateNote';
 
 const App=()=> (
   <Router>
@@ -19,9 +20,10 @@ const App=()=> (
 
   <main> 
   <Route path='/' component={LandingPage} exact /> 
-  <Route path='/register' component={RegisterScreen} exact /> 
-  <Route path='/login' component={LoginScreen} exact /> 
-  <Route path='/mynotes' component={()=> <MyNotes/>} exact /> 
+  <Route path='/register' component={RegisterScreen}  /> 
+  <Route path='/createnote' component={CreateNote}  /> 
+  <Route path='/login' component={LoginScreen} /> 
+  <Route path='/mynotes' component={()=> <MyNotes/>}  /> 
 </main>
   
 
