@@ -21,6 +21,11 @@ const MyNotes = () => {
 
 //  const [notes, setNotes] = useState([])
 
+
+const noteCreate = useSelector((state) => state.noteCreate);
+  const { success: successCreate } = noteCreate;
+
+
 const  delateHandler = (id)=>{
   if(window.confirm("Are you sure?")){
     
@@ -38,13 +43,13 @@ useEffect(()=>{
  if(!userInfo){
    history.pushState("/");
  }
-},[dispatch]);
+},[dispatch, successCreate, history, userInfo]);
 
 
 
   return (
   
-  <MainScreen title={` * _> ${userInfo.name} <_ * `}>
+  <MainScreen title={`Hi * _> ${userInfo.name} <_ * `}>
     <Link to="createnote">
       <Button style={{ marginLeft: 10, marginBottom:6}} size="lg">
       Nowa notatka
@@ -52,7 +57,7 @@ useEffect(()=>{
       </Link>
       {error && <ErrorMessage variant='danger'> {error}</ErrorMessage>}
       {loading && <Loading/> }
-      {notes?.map(note=>(
+      {notes?.reverse().map(note=>(
             <Accordion key={note._id}>
 
         <Card style={{margin: 10}}>
@@ -90,11 +95,12 @@ useEffect(()=>{
 
 
                   <blockquote className="blockquote mb-0">
-              <p>
-                {note.content}
-              </p>
+              <p>{note.content} </p>
               <footer className="blockquote-footer">
-                Create on date 
+                Create on date{"  "}
+                <cite title="Source Title">
+                            {note.createdAt.substring(0, 10)}
+                        </cite>
               </footer>
             </blockquote>
 
