@@ -13,16 +13,24 @@ import {
 import RegisterScreen from './screens/RegisterScreen/RegisterScreen';
 import LoginScreen from './screens/LoginScreen/LoginScreen';
 import CreateNote from './screens/CreateNote/CreateNote';
+import SingleNote from './screens/SingleNote/SingleNote';
+import { useState } from 'react';
 
 const App=()=> (
-  <Router>
-  <Header className="Header"/>
+  // const [search, setSearch] = useState("");
+
+
+ 
+
+<Router>
+  <Header/>
 
   <main> 
   <Route path='/' component={LandingPage} exact /> 
+  <Route path='/login' component={LoginScreen} /> 
   <Route path='/register' component={RegisterScreen}  /> 
   <Route path='/createnote' component={CreateNote}  /> 
-  <Route path='/login' component={LoginScreen} /> 
+  <Route path='/note/:id' component={SingleNote} /> 
   <Route path='/mynotes' component={()=> <MyNotes/>}  /> 
 </main>
   
@@ -31,5 +39,7 @@ const App=()=> (
 
   </Router>
 )
+
+
 
 export default App;
