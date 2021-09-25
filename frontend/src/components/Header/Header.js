@@ -5,7 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 import './Header.css';
 import { logout }from "../../actions/userActions"
 
-const Header = () => {
+const Header = ( {setSearch} ) => {
 
 
   const history =useHistory();
@@ -39,7 +39,7 @@ const Header = () => {
         type="text"
         placeholder="Szukaj"
         className="mr-sm-2"
-        //  onChange={(e) => setSearch(e.target.value)}
+         onChange={(e) => setSearch(e.target.value)}
         />
       </Form>
     </Nav>

@@ -9,7 +9,7 @@ import { deleteNoteAction, listNotes } from '../../../actions/notesActions';
 import Loading, { } from "../../../components/Loading"
 import ErrorMessage, { } from "../../../components/ErrorMessage"
 
-const MyNotes = () => {
+const MyNotes = ({search}) => {
 
    const dispatch = useDispatch();
 
@@ -81,7 +81,9 @@ useEffect(() => {
       
       {error && <ErrorMessage variant='danger'> {error}</ErrorMessage>}
       {loading && <Loading/> }
-      {notes?.reverse().map(note=>(
+      {notes?.reverse().filter((filteredNote) =>
+            filteredNote.title.toLowerCase().includes(search.toLowerCase())
+          ).map(note=>(
             <Accordion key={note._id}>
 
         <Card style={{margin: 10}}>

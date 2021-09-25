@@ -16,14 +16,14 @@ import CreateNote from './screens/CreateNote/CreateNote';
 import SingleNote from './screens/SingleNote/SingleNote';
 import { useState } from 'react';
 
-const App=()=> (
-  // const [search, setSearch] = useState("");
+const App=()=> {
+  const [search, setSearch] = useState("");
+console.log(search)
 
-
- 
+ return ( 
 
 <Router>
-  <Header/>
+  <Header setSearch={(s) => setSearch(s)}  />
 
   <main> 
   <Route path='/' component={LandingPage} exact /> 
@@ -31,15 +31,15 @@ const App=()=> (
   <Route path='/register' component={RegisterScreen}  /> 
   <Route path='/createnote' component={CreateNote}  /> 
   <Route path='/note/:id' component={SingleNote} /> 
-  <Route path='/mynotes' component={()=> <MyNotes/>}  /> 
+  <Route path='/mynotes' component={()=> <MyNotes search={search}/>}  /> 
 </main>
   
 
   <Footer/>
 
   </Router>
-)
-
+ )
+}
 
 
 export default App;
