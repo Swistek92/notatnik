@@ -18,15 +18,15 @@ history.push("mynotes");
       <Row>
           <div className='intro-text'>
             <div>
-              <h1 className="title"><b>Notatnik dla Ciebie dla rodziny!</b> </h1>
+              <h1 className="title"><b>noteBook for you for family!</b> </h1>
               <p className="subtitle">lilililililililililililiili <br/> |:-P </p>
             </div>
             <div className="buttonContainer">
           <a href='login'> 
-          <Button size="lg" className="ladingbutton" variant="danger"> Zaloguj sie</Button>
+          <Button size="lg" className="ladingbutton" variant="danger">Sign in</Button>
           </a>
           <a href='register'> 
-          <Button size="lg" className="ladingbutton" variant="success"> Zaresjestruj sie</Button>
+          <Button size="lg" className="ladingbutton" variant="success"> Register</Button>
           </a>
             </div>
 

@@ -26,7 +26,7 @@ const Header = ( {setSearch} ) => {
     <Navbar className="nav" bg="primary" expand="lg" variant="dark">
   <Container>
     <Navbar.Brand>
-      <Link to='/'>Notatnik </Link>
+      <Link to='/'>noteBook   </Link>
       
       
       </Navbar.Brand>
@@ -44,22 +44,28 @@ const Header = ( {setSearch} ) => {
       </Form>
     </Nav>
 
+ 
       <Nav>
         <Nav.Link>
           <Link to='/mynotes'>
-            Moje notatki 
+            my notes
           </Link>
       
           </Nav.Link>
-        <NavDropdown title="Swistek" id="basic-nav-dropdown">
-          <NavDropdown.Item href="/profile">Mój profil</NavDropdown.Item>
+        <NavDropdown title="Account" id="basic-nav-dropdown">
+          <NavDropdown.Item href="/profile">My Profile</NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item 
           onClick={LogoutHandler}
           
-          >Wyloguj się</NavDropdown.Item>
+          >logout</NavDropdown.Item>
         </NavDropdown>
       </Nav>
+
+
+     
+
+
     </Navbar.Collapse>
   </Container>
 </Navbar>

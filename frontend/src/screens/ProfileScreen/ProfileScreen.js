@@ -1,10 +1,15 @@
 import MainScreen from "../../components/MainScreen";
 import { Form, Button, Row, Col } from "react-bootstrap";
-import {  useState } from "react"
+import {  useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
+import ErrorMessage, { } from "../../components/ErrorMessage"
+import { useHistory } from "react-router";
+import { updateProfile } from "../../actions/userActions";
+import Loading from "../../components/Loading";
+import "./ProfileScreen.css";
+ 
 
-
-const ProfileScreen = ({ location, history }) => {
+const ProfileScreen = ({ location }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pic, setPic] = useState();
@@ -51,12 +56,40 @@ const dispatch = useDispatch();
   const userUpdate = useSelector((state) => state.userUpdate);
   const { loading, error, success } = userUpdate;
 
+const history = useHistory;
+
+
+    useEffect(() => {
+    if (!userInfo) {
+      history.push("/");
+    } else {
+      setName(userInfo.name);
+      setEmail(userInfo.email);
+      setPic(userInfo.pic);
+    }
+  }, [history, userInfo]);
+
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    
+    if(password===confirmPassword)
+
+    dispatch(updateProfile({ name, email, password, pic }));
+  };
 
   return <MainScreen title="EDIT PROFILE"> 
   <div>
     <Row className="profileContainer">
         <Col md={6}>
-            <Form >
+            <Form onSubmit={submitHandler} >
+                   {loading && <Loading />}
+              {success && (
+                <ErrorMessage variant="success">
+                  Updated Successfully
+                </ErrorMessage>
+              )}
+              {error && <ErrorMessage variant="danger">{error}</ErrorMessage>} 
               <Form.Group controlId="name">
                 <Form.Label>Name</Form.Label>
                 <Form.Control
@@ -93,6 +126,9 @@ const dispatch = useDispatch();
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 ></Form.Control>
               </Form.Group>{" "}
+              {picMessage && (
+                <ErrorMessage variant="danger">{picMessage}</ErrorMessage>
+              )}
               <Form.Group controlId="pic">
                 <Form.Label>Change Profile Picture</Form.Label>
                 <Form.File
