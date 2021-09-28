@@ -52,7 +52,7 @@ const Header = ( {setSearch} ) => {
       
           </Nav.Link>
         <NavDropdown title="Swistek" id="basic-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Mój profil</NavDropdown.Item>
+          <NavDropdown.Item href="/profile">Mój profil</NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item 
           onClick={LogoutHandler}
@@ -67,3 +67,28 @@ const Header = ( {setSearch} ) => {
 }
 
 export default Header
+
+
+
+// {userInfo? ( <Nav>
+//         <Nav.Link>
+//           <Link to='/mynotes'>
+//             Moje notatki 
+//           </Link>
+      
+//           </Nav.Link>
+//         <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+//           <NavDropdown.Item href="#action/3.1">Mój profil</NavDropdown.Item>
+//           <NavDropdown.Divider />
+//           <NavDropdown.Item 
+//           onClick={LogoutHandler}
+          
+//           >Wyloguj się</NavDropdown.Item>
+//         </NavDropdown>
+//       </Nav>) : (
+// <Link to='/login'>
+//             login
+//           </Link>
+
+//       ) }
+      
